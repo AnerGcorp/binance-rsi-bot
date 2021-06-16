@@ -6,6 +6,7 @@ import numpy
 
 from binance import Client
 from binance.enums import *
+import config
 
 SOCKET =  "wss://stream.binance.com:9443/ws/ethusdt@kline_1m"
 
@@ -18,10 +19,7 @@ TRADE_QUANTITY = 0.05
 closes = []
 in_position = False
 
-api_key = "H603dodxSRADU7gTY423YEsoAzqm9RtTS2I3JWerbnO5xAFuexUAddRcv3PLvffb"
-api_secret = "hBeVPtjKTBLS4pj6EungCyhtdaJzx0Tiz5Pz6nE2LvvP5L8sx85qF3aDDxh84DvC"
-
-client = Client(api_key, api_secret, tld="us")
+client = Client(config.api_key, config.api_secret, tld="us")
 
 def order(side, quantity, symbol, order_type=ORDER_TYPE_MARKET):
     try:
